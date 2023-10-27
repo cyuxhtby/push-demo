@@ -1,0 +1,8 @@
+{
+  "goerli": {
+    "PushDemo": {
+      "address": "0x161358e26F398e1bC77d9d3aec4a022927D94b4F",
+      "startBlock": 9937388
+    }
+  }
+}
