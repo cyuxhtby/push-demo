@@ -106,3 +106,146 @@ export class MessageUpdated extends Entity {
     this.set("transactionHash", Value.fromBytes(value));
   }
 }
+
+export class EpnsNotificationCounter extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(
+      id != null,
+      "Cannot save EpnsNotificationCounter entity without an ID"
+    );
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type EpnsNotificationCounter must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("EpnsNotificationCounter", id.toString(), this);
+    }
+  }
+
+  static loadInBlock(id: string): EpnsNotificationCounter | null {
+    return changetype<EpnsNotificationCounter | null>(
+      store.get_in_block("EpnsNotificationCounter", id)
+    );
+  }
+
+  static load(id: string): EpnsNotificationCounter | null {
+    return changetype<EpnsNotificationCounter | null>(
+      store.get("EpnsNotificationCounter", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get totalCount(): BigInt {
+    let value = this.get("totalCount");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set totalCount(value: BigInt) {
+    this.set("totalCount", Value.fromBigInt(value));
+  }
+}
+
+export class EpnsPushNotification extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save EpnsPushNotification entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type EpnsPushNotification must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("EpnsPushNotification", id.toString(), this);
+    }
+  }
+
+  static loadInBlock(id: string): EpnsPushNotification | null {
+    return changetype<EpnsPushNotification | null>(
+      store.get_in_block("EpnsPushNotification", id)
+    );
+  }
+
+  static load(id: string): EpnsPushNotification | null {
+    return changetype<EpnsPushNotification | null>(
+      store.get("EpnsPushNotification", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get notificationNumber(): BigInt {
+    let value = this.get("notificationNumber");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set notificationNumber(value: BigInt) {
+    this.set("notificationNumber", Value.fromBigInt(value));
+  }
+
+  get recipient(): string {
+    let value = this.get("recipient");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
+  }
+
+  set recipient(value: string) {
+    this.set("recipient", Value.fromString(value));
+  }
+
+  get notification(): string {
+    let value = this.get("notification");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
+  }
+
+  set notification(value: string) {
+    this.set("notification", Value.fromString(value));
+  }
+}
