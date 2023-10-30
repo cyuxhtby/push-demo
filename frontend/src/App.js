@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useContract, useWallet, useContractWrite, ConnectWallet } from "@thirdweb-dev/react";
+import React, { useState} from "react";
+import { useContract, useWallet, useContractWrite, ConnectWallet , useSigner} from "@thirdweb-dev/react";
 import "./styles/Home.css";
 import { PushAPI } from '@pushprotocol/restapi';
-import { ethers } from 'ethers';
 
 export default function Home() {
   const contractAddress = "0x161358e26F398e1bC77d9d3aec4a022927D94b4F";
   const { contract } = useContract(contractAddress);
   const setMessageHook = useContractWrite(contract, "setMessage");
   const wallet = useWallet();
+  const signer = useSigner();
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState('');
   const [loadingAction, setLoadingAction] = useState(null);
@@ -32,10 +32,13 @@ export default function Home() {
 
   const handleSubscription = async () => {
     try {
-      const signer = ethers.Wallet.createRandom();
-      const userAlice = await PushAPI.initialize(signer, { env: 'staging' });
-      const channelAddress = "0x55Ae5e87C8be13EcA8db6dcD54EbCCd491A857F8"; // replace with your channel address
-      const response = await userAlice.notification.subscribe(`eip155:5:${channelAddress}`);
+      const user = await PushAPI.initialize(signer, { env: 'staging' });
+      const channelAddress = "0x55Ae5e87C8be13EcA8db6dcD54EbCCd491A857F8"; // push demo channel
+      const response = await user.notification.subscribe(`eip155:5:${channelAddress}`, {
+        settings: [
+          {enabled: true, value: '1'} // broadcast type
+        ]
+      });
       console.log(response);
       setStatus('You are now subscribed to contract updates');
     } catch (error) {
