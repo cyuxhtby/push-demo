@@ -19,9 +19,9 @@ export function handleMessageUpdated(event: MessageUpdatedEvent): void {
   type = "1",
   title = "Message Updated",
   body = `Message: ${entity.message} updated by ${recipient}`,
-  subject = "This is the subject",
-  message = "This is the message",
-  image = "https://thumbs.dreamstime.com/b/alpaca-funny-hair-stands-out-blue-sky-background-detailed-headshot-which-allows-you-to-clearly-54343701.jpg",
+  subject = "Message Updated",
+  message = `Message: ${entity.message} updated by ${recipient}`,
+  image = "https://th.bing.com/th/id/R.27bde601699590513d04b36bd6d5b014?rik=7yTbEVhJ3mT%2bTA&riu=http%3a%2f%2fthewondrous.com%2fwp-content%2fuploads%2f2015%2f04%2fimages-of-funny-monkeys-696x1024.jpg&ehk=V%2bz9czGLPGDkm6R5LH52WaSwupc81%2b2CkKxXGO0mBJE%3d&risl=&pid=ImgRaw&r=0",
   secret = "null",
   cta = "https://framed.gg/"
 
