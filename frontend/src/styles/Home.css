@@ -150,3 +150,22 @@
 .logo img {
   filter: invert(1);
 }
+
+.roundedButton {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 150px;
+  height: 60px; 
+  justify-content: center;
+  align-items: center;
+  display: inline-flex; 
+  vertical-align: middle; 
+}
+
+.roundedButton:hover {
+  background-color: #f0f0f0;
+}

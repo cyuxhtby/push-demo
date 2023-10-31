@@ -1,0 +1,46 @@
+
+.action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .action input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    width: 300px; 
+  }
+  
+  .action input::placeholder {
+    color: grey;
+  }
+  
+  .action button {
+    width: 100px; /* Updated width */
+    height: 40px;
+    color: #fff;
+    background-color: #3c5cbd;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .action button:hover {
+    background-color: #1e25ae;
+  }
+  
+  .action button + button {
+    margin-left: 10px;
+  }
+  
+  .status {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+  }
+  
