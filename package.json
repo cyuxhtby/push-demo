@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@pushprotocol/restapi": "^1.4.31",
+    "@pushprotocol/socket": "^0.5.2",
     "ethers": "^5.7.2",
     "thirdweb": "^0.13.8"
   }

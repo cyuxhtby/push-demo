@@ -29,7 +29,7 @@ export default function Home() {
               {activeComponent === "updateMessage" ? (
                 <UpdateMessage contract={contract} signer={signer} />
               ) : (
-                <Chat />
+                <Chat signer={signer}/>
               )}
             </>
           )}
